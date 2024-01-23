@@ -5,8 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppKosci3Axaml"
         mc:Ignorable="d"
-        Title="Gra w Kosci według moodla" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="Gra w Kosci według moodla" 
+        Height="450" 
+        Width="800">
+    <DockPanel>
+        <Button DockPanel.Dock="Bottom" 
+                x:Name="btn_wyczysc"
+                Click="btn_wyczysc_Click">
+            Wyczyść
+        </Button>
+        <Button DockPanel.Dock="Bottom"
+                x:Name="btn_rzuc"
+                Click="btn_rzuc_Click">
+            Rzuć
+        </Button>
+        <ItemsControl ItemsSource="{Binding Rezultaty}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Image>
+                        <Image.Style>
+                            <Style TargetType="Image">
+                                <Setter
+                                    Property="Source"
+                                    Value="kostkapusta.png"/>
+                                <Style.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding}"
+                                        Value="1">
+                                        <Setter
+                                            Property="Source"
+                                            Value="kostka1.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger
+                                        Binding="{Binding}"
+                                        Value="2">
+                                        <Setter
+                                            Property="Source"
+                                            Value="kostka2.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger
+                                        Binding="{Binding}"
+                                        Value="3">
+                                        <Setter
+                                            Property="Source"
+                                            Value="kostka3.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger
+                                        Binding="{Binding}"
+                                        Value="4">
+                                        <Setter
+                                            Property="Source"
+                                            Value="kostka4.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger
+                                        Binding="{Binding}"
+                                        Value="5">
+                                        <Setter
+                                            Property="Source"
+                                            Value="kostka5.png"/>
+                                    </DataTrigger>
+                                    <DataTrigger
+                                        Binding="{Binding}"
+                                        Value="6">
+                                        <Setter
+                                            Property="Source"
+                                            Value="kostka6.png"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                            
+                        </Image.Style>
+                    </Image>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DockPanel>
 </Window>
