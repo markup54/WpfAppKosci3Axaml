@@ -60,5 +60,13 @@ namespace WpfAppKosci3Axaml
                 }
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+           // Button btn = sender as Button;
+           Kosc kosc = btn.DataContext as Kosc;
+            kosc.Zaznaczona = ! kosc.Zaznaczona;
+        }
     }
 }
