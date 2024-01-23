@@ -21,12 +21,12 @@ namespace WpfAppKosci3Axaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<int> Rezultaty { get; set; }
+        public ObservableCollection<Kosc> Rezultaty { get; set; }
         public int LiczbaKosci { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            Rezultaty = new ObservableCollection<int>();
+            Rezultaty = new ObservableCollection<Kosc>();
             LiczbaKosci = 10;
             wyzerujRzut();
             DataContext = this;
@@ -35,11 +35,11 @@ namespace WpfAppKosci3Axaml
 
         private void wyzerujRzut()
         {
+            
             Rezultaty.Clear();
-
             for (int i = 0; i < LiczbaKosci; i++)
             {
-                Rezultaty.Add(0);
+                Rezultaty.Add(new Kosc());
             }
         }
 
@@ -50,11 +50,14 @@ namespace WpfAppKosci3Axaml
 
         private void btn_rzuc_Click(object sender, RoutedEventArgs e)
         {
-            Rezultaty.Clear();
+            
             Random random = new Random();
-            for(int i = 0;i < LiczbaKosci;i++)
+            foreach (Kosc k in Rezultaty)
             {
-                Rezultaty.Add(random.Next(1,7));
+                if(k.Zaznaczona == false)
+                {
+                    k.Wartosc = random.Next(1, 7);
+                }
             }
         }
     }
