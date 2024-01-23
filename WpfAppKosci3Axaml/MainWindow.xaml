@@ -8,7 +8,17 @@
         Title="Gra w Kosci według moodla" 
         Height="450" 
         Width="800">
-    <DockPanel>
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Column="1" ItemsSource="{Binding Punkciki}"/>
+        <DockPanel>
         <Button DockPanel.Dock="Bottom" 
                 x:Name="btn_wyczysc"
                 Click="btn_wyczysc_Click">
@@ -205,4 +215,5 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
     </DockPanel>
+    </Grid>
 </Window>
